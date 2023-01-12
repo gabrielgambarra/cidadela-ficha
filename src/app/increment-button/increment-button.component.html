@@ -1,0 +1,37 @@
+<div class="item-container">
+  <ng-template [ngIf]="initialValue !== undefined">
+    <div class="input-label">
+      <span>{{ label }} - Inicial</span>
+      <input
+        type="text"
+        [value]="initialValue"
+        pattern="[0-9]*"
+        (input)="onChange($event)"
+        (keypress)="isNumberKey($event)"
+        [readonly]="initialValueIsSet"
+        [name]="initialValueName"
+      />
+      <button
+        (click)="initialValueIsSet = !initialValueIsSet"
+        class="initialValue-button"
+      >
+        {{ initialValueIsSet ? "Editar" : "OK" }}
+      </button>
+    </div>
+  </ng-template>
+  <div class="input-label">
+    <span>{{ label }}</span>
+    <div class="input-buttons">
+      <button (click)="dec()"><</button>
+      <input
+        type="text"
+        [value]="value"
+        pattern="[0-9]*"
+        (input)="onChange($event)"
+        (keypress)="isNumberKey($event)"
+        [name]="name"
+      />
+      <button (click)="inc()">></button>
+    </div>
+  </div>
+</div>

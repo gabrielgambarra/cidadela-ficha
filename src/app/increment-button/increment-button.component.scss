@@ -1,0 +1,25 @@
+.item-container {
+  .input-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .initialValue-button {
+      align-self: center;
+    }
+
+    .input-buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      button {
+        padding: 0.5em;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
