@@ -29,14 +29,16 @@ export class IncrementButtonComponent {
     this.valueChange.emit(this.value);
   }
 
-  onChange(event: Event): void {
+  onChange(event: Event, inputType?: string): void {
     const eventValue = (event.target as HTMLInputElement).value;
 
     eventValue.replace(/^[0-9]*$/g, '');
 
     if (parseInt(eventValue)) {
+      if (inputType === 'initial') {
+        this.initialValueChange.emit(parseInt(eventValue));
+      }
       this.valueChange.emit(parseInt(eventValue));
-      this.initialValueChange.emit(parseInt(eventValue));
     } else {
       this.valueChange.emit(0);
       this.initialValueChange.emit(0);

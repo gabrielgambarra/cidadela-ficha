@@ -31,7 +31,6 @@ export class SpellsListComponent implements OnInit {
 
   addSpell(): void {
     const spellSelect = this.spellSelect.nativeElement.value;
-    console.log('spellSelect', spellSelect);
     if (spellSelect !== 'null') {
       const spellToBeAdded = this.spells.filter(
         (spell) => spell.name === spellSelect

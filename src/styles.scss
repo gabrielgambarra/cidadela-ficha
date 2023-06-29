@@ -5,10 +5,33 @@
   padding: 0;
 }
 
-.flex {
-  display: flex;
-}
-
 li {
   list-style: none;
+}
+
+button {
+  all: unset;
+  cursor: pointer !important;
+  text-align: center !important;
+}
+
+input {
+  all: unset;
+  border: 1px solid #343434;
+  width: 100%;
+}
+
+.add-button {
+  border: 1px solid #343434;
+  padding: 0.5em;
+  width: 3.75em;
+}
+
+ul {
+  margin-top: 1em;
+
+  button {
+    border: 1px solid #343434;
+    padding: 0.25em;
+  }
 }

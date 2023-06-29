@@ -2,23 +2,23 @@
   <ng-template [ngIf]="spellsToSelect.length >= 1">
     <div class="input-label">
       <span>{{ label }}</span>
-      <select #spellSelect [name]="name">
-        <option default [value]="null"></option>
-        <option *ngFor="let spell of spellsToSelect" [ngValue]="spell">
-          {{ spell.name }}
-        </option>
-      </select>
+      <div class="input-button">
+        <select #spellSelect [name]="name">
+          <option default [value]="null"></option>
+          <option *ngFor="let spell of spellsToSelect" [ngValue]="spell">
+            {{ spell.name }}
+          </option>
+        </select>
 
-      <button (click)="addSpell()" class="add-button">Adicionar</button>
+        <button (click)="addSpell()" class="add-button">Adicionar</button>
+      </div>
     </div>
   </ng-template>
 
-  <div>
-    <ul>
-      <li *ngFor="let spell of addedSpell">
-        {{ spell.name }}
-        <button (click)="removeSpell(spell)">Remover</button>
-      </li>
-    </ul>
-  </div>
+  <ul *ngIf="addedSpell.length">
+    <li *ngFor="let spell of addedSpell">
+      <button (click)="removeSpell(spell)">Remover</button>
+      {{ spell.name }}
+    </li>
+  </ul>
 </div>

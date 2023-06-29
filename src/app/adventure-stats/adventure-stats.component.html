@@ -1,4 +1,8 @@
-<form #adventureStatsForm="ngForm" class="form-flex">
+<form
+  #adventureStatsForm="ngForm"
+  class="form-flex"
+  (submit)="$event.preventDefault()"
+>
   <!-- <div class="item-container">
     <label for="playerName">Nome do jogador</label>
     <input

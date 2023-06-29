@@ -22,9 +22,11 @@ export class ItemsListComponent {
   items: string[] = [];
 
   addItem(): void {
-    this.items.push(this.itemInput.nativeElement.value);
-    this.itemInput.nativeElement.value = '';
-    this.valueChange.emit(this.items);
+    if (this.itemInput.nativeElement.value) {
+      this.items.push(this.itemInput.nativeElement.value);
+      this.itemInput.nativeElement.value = '';
+      this.valueChange.emit(this.items);
+    }
   }
 
   removeItem(item: string) {

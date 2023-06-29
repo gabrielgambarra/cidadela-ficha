@@ -1,11 +1,33 @@
 .item-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #343434;
+  padding: 1em;
+  height: 100%;
+
   .input-label {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .initialValue-button {
-      align-self: center;
+    span {
+      display: block;
+    }
+
+    .initial-value-button {
+      display: flex;
+      width: 100%;
+
+      input {
+        border-right: none;
+      }
+
+      .initialValue-button {
+        border: 1px solid #343434;
+        padding: 0.5em;
+        width: 3.75em;
+      }
     }
 
     .input-buttons {
@@ -15,10 +37,14 @@
 
       button {
         padding: 0.5em;
+        border: 1px solid #343434;
+        width: 1.5em;
       }
 
       input {
-        width: 100%;
+        border-left: none;
+        border-right: none;
+        text-align: center;
       }
     }
   }

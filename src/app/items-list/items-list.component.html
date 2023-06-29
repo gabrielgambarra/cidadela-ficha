@@ -1,16 +1,16 @@
 <div class="item-container">
   <div class="input-label">
     <span>{{ label }}</span>
-    <input #itemInput type="text" [name]="name" />
-    <button (click)="addItem()" class="add-button">Adicionar</button>
+    <div class="input-button">
+      <input #itemInput type="text" [name]="name" />
+      <button (click)="addItem()" class="add-button">Adicionar</button>
+    </div>
   </div>
 
-  <ul>
+  <ul *ngIf="items.length">
     <li *ngFor="let item of items">
+      <button (click)="removeItem(item)">Remover</button>
       {{ item }}
-      <button (click)="removeItem(item)" class="initialValue-button">
-        Remover
-      </button>
     </li>
   </ul>
 </div>

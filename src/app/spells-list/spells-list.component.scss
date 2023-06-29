@@ -1,18 +1,19 @@
 .item-container {
+  border: 1px solid #343434;
+  padding: 1em;
+
   .input-label {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .add-button {
-      align-self: center;
-    }
-
-    .input-buttons {
-      flex-direction: row;
+    .input-button {
+      display: flex;
 
       select {
-        max-width: 100%;
+        width: 100%;
+        border-right: none;
+        outline: unset;
       }
     }
   }
