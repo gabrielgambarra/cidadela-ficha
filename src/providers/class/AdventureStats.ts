@@ -1,5 +1,5 @@
 import { Spell } from '../interfaces/Spell';
-import { MonstarEncounter } from './MonsterEncounter';
+import { MonsterEncounter } from './MonsterEncounter';
 
 export class AdventureStats {
   playerName: string;
@@ -14,7 +14,7 @@ export class AdventureStats {
   gold: number;
   spellsList: Spell[];
   itemsList: string[];
-  monstersEncounters: MonstarEncounter[];
+  monstersEncounters: MonsterEncounter[];
 
   constructor() {
     this.playerName = '';

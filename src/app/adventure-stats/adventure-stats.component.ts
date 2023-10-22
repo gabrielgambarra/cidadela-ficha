@@ -10,4 +10,14 @@ import { all_possible_spells } from 'src/providers/spells';
 export class AdventureStatsComponent {
   adventureStats = new AdventureStats();
   spells = all_possible_spells;
+
+  removeMonster(id: number) {
+    this.adventureStats.monstersEncounters = this.adventureStats.monstersEncounters.filter(
+      (monster) => monster.id !== id
+    );
+  }
+
+  teste() {
+    console.log(this.adventureStats);
+  }
 }

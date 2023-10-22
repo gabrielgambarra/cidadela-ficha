@@ -1,86 +1,47 @@
-<form
-  #adventureStatsForm="ngForm"
-  class="form-flex"
-  (submit)="$event.preventDefault()"
->
-  <!-- <div class="item-container">
-    <label for="playerName">Nome do jogador</label>
-    <input
-      type="text"
-      [(ngModel)]="adventureStats.playerName"
-      name="playerName"
-    />
-  </div> -->
+<form #adventureStatsForm="ngForm"
+      class="form-flex"
+      (submit)="$event.preventDefault()">
 
   <div class="adventure-stats">
-    <app-increment-button
-      [label]="'Habilidade'"
-      [(value)]="adventureStats.skill"
-      [(initialValue)]="adventureStats.initialSkill"
-      [name]="'skill'"
-      [initialValueName]="'initialSkill'"
-    ></app-increment-button>
-    <app-increment-button
-      [label]="'Energia'"
-      [(value)]="adventureStats.stamina"
-      [(initialValue)]="adventureStats.initialStamina"
-      [name]="'stamina'"
-      [initialValueName]="'initialStamina'"
-    ></app-increment-button>
-    <app-increment-button
-      [label]="'Sorte'"
-      [(value)]="adventureStats.luck"
-      [(initialValue)]="adventureStats.initialLuck"
-      [name]="'luck'"
-      [initialValueName]="'initialLuck'"
-    ></app-increment-button>
-    <app-increment-button
-      [label]="'Magia'"
-      [(value)]="adventureStats.magic"
-      [(initialValue)]="adventureStats.initialMagic"
-      [name]="'magic'"
-      [initialValueName]="'initialMagic'"
-    ></app-increment-button>
-    <app-increment-button
-      [label]="'Ouro'"
-      [(value)]="adventureStats.gold"
-      [name]="'gold'"
-    ></app-increment-button>
+    <app-increment-button [label]="'Habilidade'"
+                          [(value)]="adventureStats.skill"
+                          [(initialValue)]="adventureStats.initialSkill"
+                          [name]="'skill'"
+                          [initialValueName]="'initialSkill'"></app-increment-button>
+    <app-increment-button [label]="'Energia'"
+                          [(value)]="adventureStats.stamina"
+                          [(initialValue)]="adventureStats.initialStamina"
+                          [name]="'stamina'"
+                          [initialValueName]="'initialStamina'"></app-increment-button>
+    <app-increment-button [label]="'Sorte'"
+                          [(value)]="adventureStats.luck"
+                          [(initialValue)]="adventureStats.initialLuck"
+                          [name]="'luck'"
+                          [initialValueName]="'initialLuck'"></app-increment-button>
+    <app-increment-button [label]="'Magia'"
+                          [(value)]="adventureStats.magic"
+                          [(initialValue)]="adventureStats.initialMagic"
+                          [name]="'magic'"
+                          [initialValueName]="'initialMagic'"></app-increment-button>
+    <app-increment-button [label]="'Ouro'"
+                          [(value)]="adventureStats.gold"
+                          [name]="'gold'"></app-increment-button>
 
-    <app-spells-list
-      [label]="'Lista de Feitiços'"
-      [name]="'spellsList'"
-      [spells]="spells"
-      [(value)]="adventureStats.spellsList"
-    ></app-spells-list>
+    <app-spells-list [label]="'Lista de Feitiços'"
+                     [name]="'spellsList'"
+                     [spells]="spells"
+                     [(value)]="adventureStats.spellsList"></app-spells-list>
 
-    <app-items-list
-      [label]="'Lista de Equipamentos'"
-      [name]="'itemsList'"
-      [(value)]="adventureStats.itemsList"
-    ></app-items-list>
+    <app-items-list [label]="'Lista de Equipamentos'"
+                    [name]="'itemsList'"
+                    [(value)]="adventureStats.itemsList"></app-items-list>
   </div>
 
   <div class="monsters-encounters">
-    <p>teste</p>
-    <!-- <app-monsters-encounters
-        [label]="'Encontros'"
-        [name]="'monstersEncounters'"
-        [monsters]="monsters"
-        [(value)]="adventureStats.monstersEncounters"
-      ></app-monsters-encounters> -->
+    <app-monsters-encounters [name]="'monstersEncounters'"
+                             [(value)]="adventureStats.monstersEncounters"></app-monsters-encounters>
+    <app-monsters-list *ngFor="let monster of adventureStats.monstersEncounters"
+                       (removeMonster)="removeMonster($event)"
+                       [monster]="monster"></app-monsters-list>
   </div>
-  <!-- <div class="adventure-stats">
-    <app-spells-list
-      [label]="'Lista de Feitiços'"
-      [name]="'spellsList'"
-      [spells]="spells"
-      [(value)]="adventureStats.spellsList"
-    ></app-spells-list>
-    <app-items-list
-      [label]="'Lista de Equipamentos'"
-      [name]="'itemsList'"
-      [(value)]="adventureStats.itemsList"
-    ></app-items-list>
-  </div> -->
 </form>

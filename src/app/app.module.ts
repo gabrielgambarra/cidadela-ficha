@@ -9,6 +9,7 @@ import { IncrementButtonComponent } from './increment-button/increment-button.co
 import { SpellsListComponent } from './spells-list/spells-list.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { MonstersEncountersComponent } from './monsters-encounters/monsters-encounters.component';
+import { MonstersListComponent } from './monsters-list/monsters-list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MonstersEncountersComponent } from './monsters-encounters/monsters-enco
     SpellsListComponent,
     ItemsListComponent,
     MonstersEncountersComponent,
+    MonstersListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
