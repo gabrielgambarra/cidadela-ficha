@@ -36,9 +36,6 @@ export class SpellsListComponent implements OnInit {
         (spell) => spell.name === spellSelect
       )[0];
       this.spellSelect.nativeElement.value = 'null';
-      this.spellsToSelect = this.spellsToSelect.filter(
-        (spell) => spell.name !== spellSelect
-      );
 
       this.addedSpell.push(spellToBeAdded);
       this.valueChange.emit(this.addedSpell);
