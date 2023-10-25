@@ -3,37 +3,36 @@
     <div class="input-label">
       <span>{{ label }} - Inicial</span>
       <div class="initial-value-button">
-        <input
-          type="text"
-          [value]="initialValue"
-          pattern="[0-9]*"
-          (input)="onChange($event, 'initial')"
-          (keypress)="isNumberKey($event)"
-          [readonly]="initialValueIsSet"
-          [name]="initialValueName"
-        />
-        <button
-          (click)="initialValueIsSet = !initialValueIsSet"
-          class="initialValue-button"
-        >
+        <input type="number"
+               [value]="initialValue"
+               pattern="[0-9]*"
+               (input)="onChange($event, 'initial')"
+               (keypress)="isNumberKey($event)"
+               [readonly]="initialValueIsSet"
+               [name]="initialValueName"
+               min="0"
+               inputmode="numeric" />
+        <button (click)="initialValueIsSet = !initialValueIsSet"
+                class="initialValue-button">
           {{ initialValueIsSet ? "Editar" : "OK" }}
         </button>
       </div>
     </div>
     <br />
   </ng-template>
-  <div class="input-label">
+  <div class="input-label"
+       *ngIf="!justInitialValue">
     <span>{{ label }}</span>
     <div class="input-buttons">
       <button (click)="dec()">-</button>
-      <input
-        type="text"
-        [value]="value"
-        pattern="[0-9]*"
-        (input)="onChange($event)"
-        (keypress)="isNumberKey($event)"
-        [name]="name"
-      />
+      <input type="number"
+             [value]="value"
+             pattern="[0-9]*"
+             (input)="onChange($event)"
+             (keypress)="isNumberKey($event)"
+             [name]="name"
+             min="0"
+             inputmode="numeric" />
       <button (click)="inc()">+</button>
     </div>
   </div>

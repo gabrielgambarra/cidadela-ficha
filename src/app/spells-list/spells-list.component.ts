@@ -5,51 +5,52 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
-  OnInit,
 } from '@angular/core';
 import { Spell } from 'src/providers/interfaces/Spell';
+import { all_possible_spells } from 'src/providers/spells';
 
 @Component({
   selector: 'app-spells-list',
   templateUrl: './spells-list.component.html',
   styleUrls: ['./spells-list.component.scss'],
 })
-export class SpellsListComponent implements OnInit {
-  @Input() value!: Spell[];
+export class SpellsListComponent {
+  @Input() value!: Spell[] | null;
   @Output() valueChange = new EventEmitter<Spell[]>();
   @Input('label') label: string;
   @Input('name') name: string;
-  @Input('spells') spells: Spell[];
-  @ViewChild('spellSelect') spellSelect!: ElementRef;
+  @Input('magic') magic: number;
 
   addedSpell: Spell[] = [];
-  spellsToSelect: Spell[] = [];
+  spellsToSelect = all_possible_spells;
+  cantAddSpell = false;
 
-  ngOnInit() {
-    this.spellsToSelect = this.spells;
-  }
+  addSpell() {
+    if (this.magic === 0 || this.cantAddSpell) {
+      return;
+    }
 
-  addSpell(): void {
-    const spellSelect = this.spellSelect.nativeElement.value;
-    if (spellSelect !== 'null') {
-      const spellToBeAdded = this.spells.filter(
-        (spell) => spell.name === spellSelect
-      )[0];
-      this.spellSelect.nativeElement.value = 'null';
+    if (this.addedSpell.length >= this.magic) {
+      this.cantAddSpell = true;
+      return;
+    }
 
-      this.addedSpell.push(spellToBeAdded);
+    const spellToAdd: any = {
+      ...this.value,
+      id: Date.now()
+    }
+
+    if (spellToAdd) {
+      this.addedSpell.push(spellToAdd);
       this.valueChange.emit(this.addedSpell);
+      this.value = null;
     }
   }
 
   removeSpell(spell: Spell) {
-    this.addedSpell = this.addedSpell.filter((s) => s !== spell);
-    this.spellsToSelect = this.spells.filter((spell) => {
-      if (!this.addedSpell.some((item) => item.name === spell.name)) {
-        return spell;
-      }
-      return;
-    });
+    this.addedSpell = this.addedSpell.filter(
+      (addedSpell) => addedSpell.id !== spell.id
+    );
     this.valueChange.emit(this.addedSpell);
   }
 }

@@ -5,15 +5,54 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+
+  .item-overlay-1,
+  .item-overlay-2 {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    width: 89%;
+    height: 1px;
+    z-index: 2;
+    transform: translate(-50%, 50%) rotate(30deg);
+    background: red;
+  }
+
+  .item-overlay-2 {
+    transform: translate(-50%, -50%) rotate(-30deg);
+  }
 
   .input-label {
     display: flex;
     flex-direction: column;
     width: 100%;
 
+    input {
+      padding: 0.5em;
+    }
+
     .input-button {
       display: flex;
+    }
 
+    .input-buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      button {
+        padding: 0.5em;
+        border: 1px solid #343434;
+        width: 1.5em;
+      }
+
+      input {
+        border-left: none;
+        border-right: none;
+        text-align: center;
+      }
     }
   }
 

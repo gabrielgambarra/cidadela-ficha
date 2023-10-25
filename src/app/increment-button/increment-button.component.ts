@@ -13,11 +13,14 @@ export class IncrementButtonComponent {
   @Input('label') label: string;
   @Input('name') name: string;
   @Input('initialValueName') initialValueName: string;
+  @Input('justInitialValue') justInitialValue: boolean | undefined;
 
   initialValueIsSet = false;
 
   dec() {
-    this.changeValue(this.value - 1);
+    if (this.value > 0) {
+      this.changeValue(this.value - 1);
+    }
   }
 
   inc() {

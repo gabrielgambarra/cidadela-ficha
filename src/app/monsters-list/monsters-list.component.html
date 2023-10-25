@@ -1,4 +1,10 @@
 <div class="item-container">
+
+  <ng-container *ngIf="monster.energy === 0">
+    <div class="item-overlay-1"></div>
+    <div class="item-overlay-2"></div>
+  </ng-container>
+
   <div class="input-label">
     <span>Habilidade</span>
     <div class="input-button">
@@ -10,12 +16,18 @@
 
   <div class="input-label">
     <span>Energia</span>
-    <div class="input-button">
-      <input type="text"
-             readonly
-             [value]="monster.energy">
+    <div class="input-buttons">
+      <button (click)="dec()">-</button>
+      <input type="number"
+             [value]="monster.energy"
+             pattern="[0-9]*"
+             (input)="onChange($event)"
+             (keypress)="isNumberKey($event)"
+             min="0"
+             inputmode="numeric" />
+      <button (click)="inc()">+</button>
     </div>
   </div>
 
-  <button (click)="remove()">Remover</button>
+  <!-- <button (click)="remove()">Remover</button> -->
 </div>

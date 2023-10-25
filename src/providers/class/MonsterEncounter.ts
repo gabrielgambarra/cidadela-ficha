@@ -1,11 +1,11 @@
 export class MonsterEncounter {
   id: number;
-  ability: string;
+  ability: number;
   energy: number;
 
-  constructor(ability?: string, energy?: number) {
+  constructor(ability?: number, energy?: number) {
     this.id = Date.now();
-    this.ability = ability || '';
+    this.ability = ability || 0;
     this.energy = energy || 0;
   }
 }

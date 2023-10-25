@@ -22,15 +22,16 @@
                           [(value)]="adventureStats.magic"
                           [(initialValue)]="adventureStats.initialMagic"
                           [name]="'magic'"
-                          [initialValueName]="'initialMagic'"></app-increment-button>
+                          [initialValueName]="'initialMagic'"
+                          [justInitialValue]="true"></app-increment-button>
     <app-increment-button [label]="'Ouro'"
                           [(value)]="adventureStats.gold"
                           [name]="'gold'"></app-increment-button>
 
     <app-spells-list [label]="'Lista de Feitiços'"
                      [name]="'spellsList'"
-                     [spells]="spells"
-                     [(value)]="adventureStats.spellsList"></app-spells-list>
+                     [(value)]="adventureStats.spellsList"
+                     [magic]="adventureStats.initialMagic"></app-spells-list>
 
     <app-items-list [label]="'Lista de Equipamentos'"
                     [name]="'itemsList'"

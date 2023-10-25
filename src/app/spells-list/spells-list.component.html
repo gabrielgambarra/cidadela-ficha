@@ -3,14 +3,20 @@
     <div class="input-label">
       <span>{{ label }}</span>
       <div class="input-button">
-        <select #spellSelect [name]="name">
-          <option default [value]="null"></option>
-          <option *ngFor="let spell of spellsToSelect" [ngValue]="spell">
+        <select #spellSelect
+                [name]="name"
+                [(ngModel)]="value">
+          <option default
+                  [value]="null"></option>
+          <option *ngFor="let spell of spellsToSelect"
+                  [ngValue]="spell">
             {{ spell.name }}
           </option>
         </select>
 
-        <button (click)="addSpell()" class="add-button">Adicionar</button>
+        <button (click)="addSpell()"
+                class="add-button"
+                [disabled]="cantAddSpell">Adicionar</button>
       </div>
     </div>
   </ng-template>

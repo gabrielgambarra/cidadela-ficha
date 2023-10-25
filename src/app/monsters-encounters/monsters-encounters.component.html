@@ -3,6 +3,8 @@
     <span>Habilidade</span>
     <div class="input-button">
       <input type="text"
+             (keypress)="isNumberKey($event)"
+             pattern="[0-9]*"
              #ability>
     </div>
   </div>
